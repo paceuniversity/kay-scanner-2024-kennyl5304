@@ -90,7 +90,7 @@ public class TokenStream {
 					t.setValue(t.getValue() + nextChar);
 					nextChar = readChar();
 				} else {
-					t.setType("Other");
+					t.setValue(t.getValue());
 				}
 				return t;
 			case '>':
@@ -100,7 +100,7 @@ public class TokenStream {
 					t.setValue(t.getValue() + nextChar);
 					nextChar = readChar();
 				} else {
-					t.setType("Other");
+					t.setValue(t.getValue());
 				}
 				return t;
 			case '=':
@@ -280,7 +280,7 @@ public class TokenStream {
 			case '{':
 			case '}':
 			case ';':
-			case '.':
+			case ',':
 				return true;
 			default:
 				return false;
@@ -296,6 +296,7 @@ public class TokenStream {
 			case '*':
 			case '/':
 			case '<':
+			case '>':
 			case '=':
 			case '!':
 			case '&':
