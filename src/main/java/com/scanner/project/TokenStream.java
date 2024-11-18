@@ -1,4 +1,5 @@
 package com.scanner.project;
+
 // TokenStream.java
 
 // Implementation of the Scanner for JAY
@@ -71,7 +72,6 @@ public class TokenStream {
 				t.setType("Operator");
 				return t;
 			}
-			nextChar = readChar();
 		}
 
 		// Then check for an operator; this part of the code should recover 2-character
@@ -204,7 +204,7 @@ public class TokenStream {
 		t.setType("Other");
 		
 		if (isEof) {
-			 skipWhiteSpace();
+			return t;
 		}
 
 		// Makes sure that the whole unknown token (Type: Other) is printed.
