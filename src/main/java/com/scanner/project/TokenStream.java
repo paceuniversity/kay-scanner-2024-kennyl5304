@@ -61,19 +61,17 @@ public class TokenStream {
 				// look for <cr>, <lf>, <ff>
 
 				// add to value cause why not
-				t.setValue(t.getValue() + nextChar);
-				while(!isEndOfLine(nextChar)) {
-					t.setValue(t.getValue() + readChar());
-				}
-
-				t.setType("Comment");
-				return t;
+					while(!isEndOfLine(nextChar)) {
+						nextChar = readChar();
+					}
+					nextChar = readChar();
 			} else {
 				// A slash followed by anything else must be an operator.
 				t.setValue("/");
 				t.setType("Operator");
 				return t;
 			}
+			nextChar = readChar();
 		}
 
 		// Then check for an operator; this part of the code should recover 2-character
