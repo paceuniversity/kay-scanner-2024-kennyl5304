@@ -120,7 +120,7 @@ public class TokenStream {
 					t.setValue(t.getValue() + nextChar);
 					nextChar = readChar();
 				} else {
-					t.setType("Other");
+					t.setValue(t.getValue());
 				}
 				return t;
 			case '|':
