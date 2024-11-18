@@ -204,7 +204,7 @@ public class TokenStream {
 		t.setType("Other");
 		
 		if (isEof) {
-			return t;
+			 skipWhiteSpace();
 		}
 
 		// Makes sure that the whole unknown token (Type: Other) is printed.
